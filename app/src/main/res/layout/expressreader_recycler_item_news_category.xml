@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tv_channel_name"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/expressreader_news_channel_button_bg"
+    android:gravity="center"
+    android:padding="@dimen/dp_8"
+    android:textColor="@drawable/expressreader_news_channel_text_selector"
+    android:textSize="@dimen/sp_13"
+    tools:text="热点" />
+

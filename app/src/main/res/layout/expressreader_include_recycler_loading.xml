@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/dp_110"
+    android:layout_height="@dimen/dp_110"
+    android:layout_gravity="center"
+    android:background="@drawable/expressreader_loading_dialog_bg"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ProgressBar
+        android:id="@+id/loading_pb"
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_30"
+        android:indeterminateDrawable="@drawable/expressreader_loading_more"
+        android:padding="@dimen/dp_1" />
+
+    <TextView
+        android:id="@+id/tv_loading_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:gravity="center"
+        android:text="@string/expressreader_data_loading"
+        android:textSize="@dimen/sp_14" />
+</LinearLayout>

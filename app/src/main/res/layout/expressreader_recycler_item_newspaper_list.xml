@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_newspaper_item_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/expressreader_appbar_bg">
+
+    <ImageView
+        android:id="@+id/iv_newspaper_item_cover"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_190"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/expressreader_newspaper_cover"
+        android:scaleType="centerCrop"
+        tools:background="@drawable/expressreader_default_cover" />
+
+    <TextView
+        android:id="@+id/tv_newspaper_item_date"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:background="@drawable/expressreader_newspaper_item_title_bg"
+        android:gravity="center_vertical"
+        android:padding="@dimen/dp_8"
+        android:textColor="@color/expressreader_white"
+        android:textSize="@dimen/sp_15"
+        tools:text="2018-12-27" />
+
+    <CheckBox
+        android:id="@+id/cb_newspaper_item_favorite"
+        android:layout_width="@dimen/dp_25"
+        android:layout_height="@dimen/dp_25"
+        android:layout_alignTop="@+id/tv_newspaper_item_date"
+        android:layout_alignBottom="@+id/tv_newspaper_item_date"
+        android:layout_alignParentEnd="true"
+        android:button="@drawable/expressreader_newspaper_favorite_selector"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/tv_newspaper_item_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_newspaper_item_cover"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:padding="@dimen/dp_10"
+        android:textColor="#111111"
+        android:textSize="@dimen/sp_14"
+        tools:text="《每日新闻》是日本一家全国发行的报纸，也是日本现有历史最悠久的报纸，由每日新闻社出版。其最早前身为1872年2月21日创刊的《东京日日新闻》，1911年3月1日与《大阪每日新闻》合并，不过它们持续使用原名在东京及大阪两地分开发行，至1943年才共同使用现名，目前以东京、名古屋、大阪、福冈4地为主要发行据点。" />
+
+</RelativeLayout>

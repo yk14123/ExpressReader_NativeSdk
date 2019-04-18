@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/srl_newspaper_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   app:layout_srlSpinnerStyle="Translate"
+    app:srlAccentColor="@color/expressreader_colorAccent"
+    app:srlClassicsSpinnerStyle="FixedBehind"
+    app:srlPrimaryColor="@color/expressreader_magazineBackgroundColor"
+    tools:context=".view.newspaper.paper_news.PaperNewsActivity">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/abl_newspaper_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/ctl_newspaper_intro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentScrim="@color/expressreader_white"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:titleEnabled="false">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/expressreader_newspaper_banner"
+                    android:scaleType="centerCrop"
+                    app:layout_collapseMode="parallax" />
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/tb_newspaper_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_40"
+                    app:layout_collapseMode="pin">
+
+                    <TextView
+                        android:id="@+id/tv_newspaper_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:textColor="@color/expressreader_summaryTextColor"
+                        android:textSize="@dimen/sp_16"
+                        tools:text="人民日报" />
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!--报社新闻列表-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_newspaper_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <!--报社icon-->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_newspaper_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:src="@drawable/expressreader_icon_version"
+            app:backgroundTint="#F3F3F3"
+            app:borderWidth="@dimen/dp_3"
+            app:elevation="@dimen/dp_0"
+            app:fabSize="normal"
+            app:layout_anchor="@id/rv_newspaper_list"
+            app:layout_anchorGravity="start"
+            app:maxImageSize="@dimen/dp_45" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</com.scwang.smartrefresh.layout.SmartRefreshLayout>

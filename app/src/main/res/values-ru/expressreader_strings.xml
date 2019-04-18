@@ -1,0 +1,96 @@
+<resources>
+    <!--tab标签 -->
+    <string name="expressreader_app_name">Express Reader</string>
+    <string name="expressreader_hotspot">новости</string>
+    <string name="expressreader_newspaper">Газета</string>
+    <string name="expressreader_magazine">журнал</string>
+    <string name="expressreader_mine">Пользователь</string>
+
+    <!--MENU 菜单-->
+    <string name="expressreader_menu_font">Размер шрифта</string>
+    <string name="expressreader_menu_bookmarks">Избранное</string>
+    <string name="expressreader_menu_share">Share</string>
+
+    <!--MAGAZINE 杂志-->
+    <string name="expressreader_app_exit_tips">Нажмите еще раз, чтобы выйти из приложения.</string>
+    <string name="expressreader_magazine_units_data_empty">Нет данных</string>
+    <string name="expressreader_data_loading">Обновляется</string>
+    <string name="expressreader_magazine_unit">No. </string>
+    <string name="expressreader_magazine_label_cover">Обложка</string>
+    <string name="expressreader_magazine_label_hot">Горячие</string>
+    <string name="expressreader_magazine_slide_down">Slide down</string>
+    <string name="expressreader_magazine_unit_number">No.</string>
+    s
+    <!--MINE 我的-->
+    <string name="expressreader_mine_favorite">Favorites|History</string>
+    <string name="expressreader_mine_favorite_label">Избранное</string>
+    <string name="expressreader_mine_history">Запись пользователей</string>
+    <string name="expressreader_mine_settings">Настройка</string>
+    <string name="expressreader_mine_font">Размер шрифта</string>
+    <string name="expressreader_mine_language">Языки</string>
+    <string name="expressreader_mine_app_version">Version</string>
+
+    <!--FONT OPTION TEXT 字体-->
+    <string name="expressreader_font_label">Размер шрифта</string>
+    <string name="expressreader_font_largest">Огромной</string>
+    <string name="expressreader_font_large">Большой</string>
+    <string name="expressreader_font_normal">Средний</string>
+    <string name="expressreader_font_small">Мелкий</string>
+    <string name="expressreader_cancel">Отмена</string>
+
+    <!--时间单位-->
+    <string name="expressreader_time_remain">Remain</string>
+    <string name="expressreader_year_before">y</string>
+    <string name="expressreader_day_before">d</string>
+    <string name="expressreader_days_before">前天</string>
+    <string name="expressreader_minutes_before">m</string>
+    <string name="expressreader_month">m</string>
+    <string name="expressreader_day">d</string>
+    <string name="expressreader_yesterday">yesterday</string>
+    <string name="expressreader_hour">h</string>
+    <string name="expressreader_minute">m</string>
+    <string name="expressreader_point">s</string>
+
+    <string name="express_hotspot_top">Топ</string>
+    <string name="expressreader_my_channel">Категории</string>
+    <string name="expressreader_edit">Редактировать</string>
+    <string name="expressreader_done">Выполнено</string>
+    <string name="expressreader_channel_drag_tips">Перетаскивать и перестроить</string>
+    <string name="expressreader_channel_tap_tips">Кликнуть для ввода в категорию</string>
+    <string name="expressreader_collapse_text">Меньше</string>
+    <string name="expressreader_more_text">Больше</string>
+    <string name="expressreader_splash_logo">Splash logo</string>
+    <string name="expressreader_locale_zh">中文（简体）</string>
+    <string name="expressreader_locale_en">English</string>
+    <string name="expressreader_locale_ru">Español</string>
+    <string name="expressreader_locale_ar">عربية</string>
+    <string name="expressreader_locale_es">Русский</string>
+    <string name="expressreader_confirm">Да</string>
+    <string name="expressreader_mine_option_content_description">My option</string>
+    <string name="expressreader_clear_all">Очистить все</string>
+    <string name="expressreader_delete">Удалить</string>
+    <string name="expressreader_history_edit">Редактировать историю</string>
+    <string name="expressreader_favorite_edit">Редактировать избранное</string>
+    <string name="expressreader_history_data_empty">Нет данных</string>
+    <string name="favorite_success">Сохранено в избранное</string>
+    <string name="favorite_cancel">Удалено из избранного</string>
+    <string name="expressreader_favorite_data_empty">Нет данных</string>
+    <string name="expressreader_data_refresh">Загрузить для обновления</string>
+    <string name="expressreader_delete_count">Удалить（%d）</string>
+    <string name="expressreader_loading_more">loading more…</string>
+
+    <!--Content Description-->
+    <string name="expressreader_newspaper_cover">the newspaper cover</string>
+    <string name="expressreader_news_logo">the news logo</string>
+    <string name="expressreader_news_image">the news image</string>
+    <string name="expressreader_magazine_cover">the magazine cover</string>
+    <string name="expressreader_image_detail">the detail of image</string>
+    <string name="expressreader_back_up">back to previous page</string>
+    <string name="expressreader_magazine_review">review the issue list</string>
+    <string name="expressreader_font_setting">Размер шрифта</string>
+    <string name="expressreader_favorite_action">Избранное</string>
+    <string name="expressreader_close">Close current page</string>
+    <string name="expressreader_drag_reorganize">To reorganize the news</string>
+    <string name="expressreader_hot_news">The HotSpot</string>
+    <string name="expressreader_clear_all_confirm">确认清除？</string>
+</resources>

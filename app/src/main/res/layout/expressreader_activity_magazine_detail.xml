@@ -1,0 +1,84 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.cnpeak.expressreader.view.magazine.magazine_detail.MagazineDetailActivity">
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/srl_magazine_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        app:srlDragRate="20.0"
+        app:srlEnableLoadMore="false"
+        app:srlEnablePreviewInEditMode="true"
+        app:srlEnableRefresh="true"
+        app:srlHeaderHeight="@dimen/dp_20"
+        app:srlReboundDuration="100">
+
+        <com.scwang.smartrefresh.layout.header.TwoLevelHeader
+            android:id="@+id/tll_magazine_detail_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_srlSpinnerStyle="MatchLayout"
+            app:srlEnablePullToCloseTwoLevel="true"
+            app:srlEnableTwoLevel="true">
+
+            <include layout="@layout/expressreader_include_magazine_pages" />
+
+        </com.scwang.smartrefresh.layout.header.TwoLevelHeader>
+
+        <include layout="@layout/expressreader_include_magazine_content" />
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_magazine_detail_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:background="@drawable/expressreader_magazine_toolbar_bg"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_action_back_press"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_10"
+            android:contentDescription="@string/expressreader_back_up"
+            android:src="@drawable/expressreader_icon_back_shadow" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/iv_action_font_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:contentDescription="@string/expressreader_font_setting"
+            android:src="@drawable/expressreader_icon_font_shadow" />
+
+        <ImageView
+            android:id="@+id/iv_action_favorite_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/dp_10"
+            android:contentDescription="@string/expressreader_favorite_action"
+            android:src="@drawable/expressreader_icon_bookmark_normal" />
+
+        <ImageView
+            android:id="@+id/iv_action_review_units"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:contentDescription="@string/expressreader_magazine_review"
+            android:src="@drawable/expressreader_magazine_mark" />
+
+    </LinearLayout>
+</FrameLayout>
+

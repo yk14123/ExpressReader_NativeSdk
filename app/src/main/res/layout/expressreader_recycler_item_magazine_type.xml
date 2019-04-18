@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_magazine_item_root"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_240">
+
+    <ImageView
+        android:id="@+id/iv_magazine_view_cover"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/expressreader_magazine_cover"
+        android:scaleType="centerCrop"
+        tools:background="@drawable/expressreader_default_cover" />
+
+    <TextView
+        android:id="@+id/tv_magazine_view_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_80"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/expressreader_magazine_cover_title_bg"
+        android:gravity="center_vertical"
+        android:padding="@dimen/dp_8"
+        android:textColor="@color/expressreader_white_light"
+        android:textSize="@dimen/sp_14"
+        tools:text="VOCUE" />
+
+    <TextView
+        android:id="@+id/tv_magazine_view_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="@dimen/dp_8"
+        android:textColor="@color/expressreader_white"
+        android:textSize="@dimen/sp_10"
+        tools:text="2018/11/8" />
+
+    <CheckBox
+        android:id="@+id/cb_magazine_view_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tv_magazine_view_date"
+        android:layout_alignBottom="@+id/tv_magazine_view_date"
+        android:layout_alignParentEnd="true"
+        android:button="@drawable/expressreader_newspaper_favorite_selector"
+        android:gravity="center"
+        android:padding="@dimen/dp_5" />
+
+</RelativeLayout>

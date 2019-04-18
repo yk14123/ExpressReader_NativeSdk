@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_recycler_empty_root"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_100"
+    android:background="@drawable/expressreader_appbar_bg"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="@dimen/dp_10">
+
+    <CheckBox
+        android:id="@+id/cb_magazine_history_checkable_cover_unit"
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_30"
+        android:layout_marginEnd="@dimen/dp_5"
+        android:button="@drawable/expressreader_history_check_selector"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="@dimen/dp_5"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.cnpeak.expressreader.view.widget.TagText
+            android:id="@+id/tv_magazine_history_item_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#666666"
+            android:textSize="@dimen/sp_14"
+            app:tagDrawable="@drawable/expressreader_magazine_issue_number_bg"
+            app:tagTextColor="#4EA8FE" />
+
+        <TextView
+            android:id="@+id/tv_magazine_history_item_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_5"
+            android:textColor="#000000"
+            android:textSize="@dimen/sp_15" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_issue_local_item_cover"
+        android:layout_width="@dimen/dp_110"
+        android:layout_height="@dimen/dp_75"
+        android:layout_gravity="center_vertical|end"
+        android:contentDescription="@string/expressreader_magazine_cover"
+        android:scaleType="centerCrop" />
+
+</LinearLayout>

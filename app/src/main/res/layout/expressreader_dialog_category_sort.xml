@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/expressreader_news_channel_bg"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_10">
+
+    <ImageView
+        android:id="@+id/iv_category_window_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/expressreader_icon_close_blue"
+        android:contentDescription="@string/expressreader_close" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20">
+
+        <TextView
+            android:id="@+id/tv_channel_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/expressreader_my_channel"
+            android:textSize="@dimen/sp_16" />
+
+        <TextView
+            android:id="@+id/tv_channel_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_channel_title"
+            android:layout_marginTop="@dimen/dp_8"
+            android:text="@string/expressreader_my_channel"
+            android:textSize="@dimen/sp_12" />
+
+        <TextView
+            android:id="@+id/tv_channel_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/expressreader_news_channel_edit"
+            android:text="@string/expressreader_edit"
+            android:textColor="#EF5C49" />
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_category_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp_20" />
+</LinearLayout>

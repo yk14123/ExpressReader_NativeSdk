@@ -1,0 +1,76 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.cnpeak.expressreader"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        debug {
+            keyAlias keystoreAlias
+            keyPassword keystorePassword
+            storeFile file(keystorePath)
+            storePassword keystorePassword
+        }
+        release {
+            keyAlias keystoreAlias
+            keyPassword keystorePassword
+            storeFile file(keystorePath)
+            storePassword keystorePassword
+        }
+
+        buildTypes {
+            release {
+                //是否移除无用资源
+                zipAlignEnabled true
+                signingConfig signingConfigs.release
+                //混淆 and 配置文件
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            }
+            debug {
+                //是否移除无用资源
+                zipAlignEnabled true
+                signingConfig signingConfigs.debug
+                //混淆 and 配置文件
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //test
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.2-alpha01'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.2-alpha01'
+    //net tools
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.3'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+    //json format
+    implementation 'com.google.code.gson:gson:2.8.5'
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
+    //photoView
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+    //support
+    implementation 'com.google.android.material:material:1.1.0-alpha03'
+    //room数据库
+    implementation 'androidx.room:room-runtime:2.1.0-alpha04'
+    implementation 'androidx.room:room-rxjava2:2.1.0-alpha04'
+    annotationProcessor 'androidx.room:room-compiler:2.1.0-alpha04'
+    //SmartRefreshLayout 1.1.0
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-14'
+}

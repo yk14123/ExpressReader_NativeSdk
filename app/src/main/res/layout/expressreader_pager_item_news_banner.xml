@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tv_hotspot_banner_text"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:ellipsize="end"
+    android:maxLines="1"
+    android:padding="@dimen/dp_10"
+    android:textColor="#000000"
+    android:textSize="@dimen/sp_14"
+    tools:text="习近平两院院士大会重要讲话激励香港科学家" />
+

@@ -1,0 +1,96 @@
+<resources>
+    <!--tab标签 -->
+    <string name="expressreader_app_name">Express Reader</string>
+    <string name="expressreader_hotspot">Noticias</string>
+    <string name="expressreader_newspaper">Periódico</string>
+    <string name="expressreader_magazine">Revista</string>
+    <string name="expressreader_mine">Usuario</string>
+
+    <!--MENU 菜单-->
+    <string name="expressreader_menu_font">Tamaño de fuente</string>
+    <string name="expressreader_menu_bookmarks">Colección</string>
+    <string name="expressreader_menu_share">Share</string>
+
+    <!--MAGAZINE 杂志-->
+    <string name="expressreader_app_exit_tips">Haga clic de nuevo para salir de la aplicación</string>
+    <string name="expressreader_magazine_units_data_empty">Nada aún</string>
+    <string name="expressreader_data_loading">Actualizando</string>
+    <string name="expressreader_magazine_unit">No. </string>
+    <string name="expressreader_magazine_label_cover">Portada</string>
+    <string name="expressreader_magazine_label_hot">Calientes</string>
+    <string name="expressreader_magazine_slide_down">Slide down</string>
+    <string name="expressreader_magazine_unit_number">No.</string>
+    s
+    <!--MINE 我的-->
+    <string name="expressreader_mine_favorite">Favorites|History</string>
+    <string name="expressreader_mine_favorite_label">Colección</string>
+    <string name="expressreader_mine_history">Historia</string>
+    <string name="expressreader_mine_settings">Configuraciones</string>
+    <string name="expressreader_mine_font">Tamaño de fuente</string>
+    <string name="expressreader_mine_language">Idioma</string>
+    <string name="expressreader_mine_app_version">Version</string>
+
+    <!--FONT OPTION TEXT 字体-->
+    <string name="expressreader_font_label">Tamaño de fuente</string>
+    <string name="expressreader_font_largest">Extra grande</string>
+    <string name="expressreader_font_large">Grande</string>
+    <string name="expressreader_font_normal">Medio</string>
+    <string name="expressreader_font_small">Pequeña</string>
+    <string name="expressreader_cancel">Cancelar</string>
+
+    <!--时间单位-->
+    <string name="expressreader_time_remain">Remain</string>
+    <string name="expressreader_year_before">y</string>
+    <string name="expressreader_day_before">d</string>
+    <string name="expressreader_days_before">前天</string>
+    <string name="expressreader_minutes_before">m</string>
+    <string name="expressreader_month">m</string>
+    <string name="expressreader_day">d</string>
+    <string name="expressreader_yesterday">yesterday</string>
+    <string name="expressreader_hour">h</string>
+    <string name="expressreader_minute">m</string>
+    <string name="expressreader_point">s</string>
+
+    <string name="express_hotspot_top">Ve arriba</string>
+    <string name="expressreader_my_channel">Categorías</string>
+    <string name="expressreader_edit">Editar</string>
+    <string name="expressreader_done">Hecho</string>
+    <string name="expressreader_channel_drag_tips">Arrastrar y reorganizar</string>
+    <string name="expressreader_channel_tap_tips">Haga clic en la categoría</string>
+    <string name="expressreader_collapse_text">Menos</string>
+    <string name="expressreader_more_text">Más</string>
+    <string name="expressreader_splash_logo">Splash logo</string>
+    <string name="expressreader_locale_zh">中文（简体）</string>
+    <string name="expressreader_locale_en">English</string>
+    <string name="expressreader_locale_ru">Español</string>
+    <string name="expressreader_locale_ar">عربية</string>
+    <string name="expressreader_locale_es">Русский</string>
+    <string name="expressreader_confirm">Confirmar</string>
+    <string name="expressreader_mine_option_content_description">My option</string>
+    <string name="expressreader_clear_all">Borrar todo</string>
+    <string name="expressreader_delete">Eliminar</string>
+    <string name="expressreader_history_edit">Editar historia</string>
+    <string name="expressreader_favorite_edit">Editar favoritos</string>
+    <string name="expressreader_history_data_empty">Nada aún</string>
+    <string name="favorite_success">Guardado en favoritos</string>
+    <string name="favorite_cancel">Eliminado de favoritos</string>
+    <string name="expressreader_favorite_data_empty">Nada aún</string>
+    <string name="expressreader_data_refresh">Tire para actualizar</string>
+    <string name="expressreader_delete_count">Eliminar（%d）</string>
+    <string name="expressreader_loading_more">loading more…</string>
+
+    <!--Content Description-->
+    <string name="expressreader_newspaper_cover">the newspaper cover</string>
+    <string name="expressreader_news_logo">the news logo</string>
+    <string name="expressreader_news_image">the news image</string>
+    <string name="expressreader_magazine_cover">the magazine cover</string>
+    <string name="expressreader_image_detail">the detail of image</string>
+    <string name="expressreader_back_up">back to previous page</string>
+    <string name="expressreader_magazine_review">review the issue list</string>
+    <string name="expressreader_font_setting">Tamaño de fuente</string>
+    <string name="expressreader_favorite_action">Colección</string>
+    <string name="expressreader_close">Close current page</string>
+    <string name="expressreader_drag_reorganize">To reorganize the news</string>
+    <string name="expressreader_hot_news">The HotSpot</string>
+    <string name="expressreader_clear_all_confirm">确认清除？</string>
+</resources>

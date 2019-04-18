@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tv_expressreader_tag"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/dp_1_5"
+    android:paddingEnd="@dimen/dp_5"
+    android:paddingStart="@dimen/dp_5"
+    android:paddingTop="@dimen/dp_1_5"
+    android:textColor="@color/expressreader_white"
+    android:textSize="@dimen/sp_11"
+    tools:background="@drawable/expressreader_magazine_label_hot_bg"
+    tools:text="标签" />

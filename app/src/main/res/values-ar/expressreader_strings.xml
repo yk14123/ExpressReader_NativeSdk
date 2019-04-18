@@ -1,0 +1,96 @@
+<resources>
+    <!--tab标签 -->
+    <string name="expressreader_app_name">Express Reader</string>
+    <string name="expressreader_hotspot">أخبار سريعة</string>
+    <string name="expressreader_newspaper">الصحيفة</string>
+    <string name="expressreader_magazine">المجلة</string>
+    <string name="expressreader_mine">المستعمل</string>
+
+    <!--MENU 菜单-->
+    <string name="expressreader_menu_font">حجم الخط</string>
+    <string name="expressreader_menu_bookmarks">المفضلة</string>
+    <string name="expressreader_menu_share">Share</string>
+
+    <!--MAGAZINE 杂志-->
+    <string name="expressreader_app_exit_tips">انقر مرة أخرى للخروج من التطبيق</string>
+    <string name="expressreader_magazine_units_data_empty">لا شيء حتى الان</string>
+    <string name="expressreader_data_loading">تحديث …</string>
+    <string name="expressreader_magazine_unit">No. </string>
+    <string name="expressreader_magazine_label_cover">غلاف</string>
+    <string name="expressreader_magazine_label_hot">الاخبار المهمه</string>
+    <string name="expressreader_magazine_slide_down">Slide down</string>
+    <string name="expressreader_magazine_unit_number">No.</string>
+    s
+    <!--MINE 我的-->
+    <string name="expressreader_mine_favorite">Favorites|History</string>
+    <string name="expressreader_mine_favorite_label">المفضلة</string>
+    <string name="expressreader_mine_history">التاريخ</string>
+    <string name="expressreader_mine_settings">إعدادات</string>
+    <string name="expressreader_mine_font">حجم الخط</string>
+    <string name="expressreader_mine_language">لغة</string>
+    <string name="expressreader_mine_app_version">Version</string>
+
+    <!--FONT OPTION TEXT 字体-->
+    <string name="expressreader_font_label">حجم الخط</string>
+    <string name="expressreader_font_largest">كبير جدا</string>
+    <string name="expressreader_font_large">كبير</string>
+    <string name="expressreader_font_normal">متوسط</string>
+    <string name="expressreader_font_small">صغير</string>
+    <string name="expressreader_cancel">إلغاء</string>
+
+    <!--时间单位-->
+    <string name="expressreader_time_remain">Remain</string>
+    <string name="expressreader_year_before">y</string>
+    <string name="expressreader_day_before">d</string>
+    <string name="expressreader_days_before">前天</string>
+    <string name="expressreader_minutes_before">m</string>
+    <string name="expressreader_month">m</string>
+    <string name="expressreader_day">d</string>
+    <string name="expressreader_yesterday">yesterday</string>
+    <string name="expressreader_hour">h</string>
+    <string name="expressreader_minute">m</string>
+    <string name="expressreader_point">s</string>
+
+    <string name="express_hotspot_top">اذهب الى القمة</string>
+    <string name="expressreader_my_channel">الاقسام</string>
+    <string name="expressreader_edit">تصحيح</string>
+    <string name="expressreader_done">انتهى</string>
+    <string name="expressreader_channel_drag_tips">السحب وإعادة تنظيم</string>
+    <string name="expressreader_channel_tap_tips">انقر على الفئة</string>
+    <string name="expressreader_collapse_text">أقل</string>
+    <string name="expressreader_more_text">أكثر</string>
+    <string name="expressreader_splash_logo">Splash logo</string>
+    <string name="expressreader_locale_zh">中文（简体）</string>
+    <string name="expressreader_locale_en">English</string>
+    <string name="expressreader_locale_ru">Español</string>
+    <string name="expressreader_locale_ar">عربية</string>
+    <string name="expressreader_locale_es">Русский</string>
+    <string name="expressreader_confirm">تؤكد</string>
+    <string name="expressreader_mine_option_content_description">My option</string>
+    <string name="expressreader_clear_all">امسح الكل</string>
+    <string name="expressreader_delete">إزالة</string>
+    <string name="expressreader_history_edit">تحرير التاريخ</string>
+    <string name="expressreader_favorite_edit">تحرير المفضلة</string>
+    <string name="expressreader_history_data_empty">لا شيء حتى الان</string>
+    <string name="favorite_success">تم الحفظ في المفضلة</string>
+    <string name="favorite_cancel">تمت إزالته من المفضلة</string>
+    <string name="expressreader_favorite_data_empty">لا شيء حتى الان</string>
+    <string name="expressreader_data_refresh">اسحب للتحديث</string>
+    <string name="expressreader_delete_count">إزالة（%d）</string>
+    <string name="expressreader_loading_more">loading more…</string>
+
+    <!--Content Description-->
+    <string name="expressreader_newspaper_cover">the newspaper cover</string>
+    <string name="expressreader_news_logo">the news logo</string>
+    <string name="expressreader_news_image">the news image</string>
+    <string name="expressreader_magazine_cover">the magazine cover</string>
+    <string name="expressreader_image_detail">the detail of image</string>
+    <string name="expressreader_back_up">back to previous page</string>
+    <string name="expressreader_magazine_review">review the issue list</string>
+    <string name="expressreader_font_setting">حجم الخط</string>
+    <string name="expressreader_favorite_action">المفضلة</string>
+    <string name="expressreader_close">Close current page</string>
+    <string name="expressreader_drag_reorganize">To reorganize the news</string>
+    <string name="expressreader_hot_news">The HotSpot</string>
+    <string name="expressreader_clear_all_confirm">确认清除？</string>
+</resources>

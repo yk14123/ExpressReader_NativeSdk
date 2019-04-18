@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fl_issue_item_root"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_400"
+    android:layout_gravity="center">
+
+    <ImageView
+        android:id="@+id/iv_magazine_review_cover"
+        android:layout_width="@dimen/dp_290"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:contentDescription="@string/expressreader_magazine_cover" />
+
+    <LinearLayout
+        android:layout_width="@dimen/dp_290"
+        android:layout_height="@dimen/dp_99"
+        android:layout_gravity="bottom|center"
+        android:background="@drawable/expressreader_magazine_cover_title_bg"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_magazine_review_issueNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_5"
+            android:layout_marginStart="@dimen/dp_8"
+            android:textColor="@color/expressreader_white"
+            android:textSize="@dimen/sp_23"
+            tools:text="144 期" />
+
+        <TextView
+            android:id="@+id/tv_magazine_review_publishDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_5"
+            android:layout_marginStart="@dimen/dp_8"
+            android:textColor="@color/expressreader_white"
+            android:textSize="@dimen/sp_12"
+            tools:text="2018/11/8" />
+
+    </LinearLayout>
+
+</FrameLayout>

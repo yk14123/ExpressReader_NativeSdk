@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_hotspot_item_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/expressreader_appbar_bg"
+    android:orientation="horizontal"
+    android:padding="@dimen/dp_10">
+
+    <CheckBox
+        android:id="@+id/cb_hotspot_item_checkable"
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_30"
+        android:layout_gravity="center"
+        android:layout_marginEnd="@dimen/dp_8"
+        android:button="@drawable/expressreader_history_check_selector"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_hotspot_item_newsIcon"
+            android:layout_width="@dimen/dp_22"
+            android:layout_height="@dimen/dp_22"
+            android:layout_alignParentStart="true"
+            android:contentDescription="@string/expressreader_news_logo"
+            tools:background="@drawable/expressreader_mine_active" />
+
+        <TextView
+            android:id="@+id/tv_hotspot_item_newsName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_5"
+            android:layout_toEndOf="@+id/iv_hotspot_item_newsIcon"
+            android:textColor="@color/expressreader_titleTextColor"
+            android:textSize="@dimen/sp_14"
+            tools:text="人民日报" />
+
+
+        <TextView
+            android:id="@+id/tv_hotspot_item_publishTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:textColor="@color/expressreader_timeTextColor"
+            android:textSize="@dimen/sp_11"
+            tools:text="2分钟前" />
+
+        <TextView
+            android:id="@+id/tv_hotspot_item_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/expressreader_news_top_label_bg"
+            android:text="@string/express_hotspot_top"
+            android:textColor="#EF5C49"
+            android:textSize="@dimen/sp_10"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_hotspot_item_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_hotspot_item_newsIcon"
+            android:maxLines="2"
+            android:paddingTop="@dimen/dp_10"
+            android:paddingBottom="@dimen/dp_10"
+            android:textColor="@color/expressreader_summaryTextColor"
+            android:textSize="@dimen/sp_15"
+            tools:text="《每日新闻》是日本一家全国发行的报纸，也是日本现有历史最悠久的报纸，由每日新闻社出版。其最早前身为1872年2月21日创刊的《东京日日新闻》，1911年3月1日与《大阪每日新闻》合并，不过它们持续使用原名在东京及大阪两地分开发行，至1943年才共同使用现名，目前以东京、名古屋、大阪、福冈4地为主要发行据点。" />
+
+        <ImageView
+            android:id="@+id/iv_hotspot_item_newsCover"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_170"
+            android:layout_below="@+id/tv_hotspot_item_description"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/expressreader_news_image"
+            android:scaleType="centerInside" />
+    </RelativeLayout>
+</LinearLayout>

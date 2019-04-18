@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <paths>
+        <external-path name="files_root" path="应用路径" />
+        <external-path name="external_storage_root" path="." />
+        <!--<files-path>=Context.getFilesDir()-->
+        <!--<external-path>=Environment.getExternalStorageDirectory()-->
+        <!--<cache-path>=getCacheDir()-->
+    </paths>
+</resources>

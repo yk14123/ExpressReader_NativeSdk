@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_recycler_empty_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_recycler_empty_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/expressreader_history_empty"
+        android:gravity="center"
+        android:padding="@dimen/dp_10"
+        android:text="@string/expressreader_history_data_empty"
+        android:textSize="@dimen/sp_14" />
+
+</LinearLayout>

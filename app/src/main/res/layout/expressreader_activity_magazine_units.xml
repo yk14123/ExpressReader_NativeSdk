@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/srl_magazine_unit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srlEnableAutoLoadMore="false">
+
+        <include layout="@layout/expressreader_include_header" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_magazine_unit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <include layout="@layout/expressreader_include_footer" />
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+    <ImageView
+        android:id="@+id/iv_magazine_unit_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_10"
+        android:contentDescription="@string/expressreader_back_up"
+        android:src="@drawable/expressreader_icon_back_shadow" />
+
+    <ImageView
+        android:id="@+id/iv_magazine_unit_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_margin="@dimen/dp_10"
+        android:contentDescription="@string/expressreader_magazine_review"
+        android:src="@drawable/expressreader_magazine_review" />
+
+</FrameLayout>
+
+
+
+

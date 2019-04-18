@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".view.mine.local.LocalHistoryActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/expressreader_include_appbar_layout" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tl_history_local"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginTop="@dimen/dp_1"
+            android:background="@color/expressreader_white"
+            app:tabGravity="center"
+            app:tabIndicatorColor="@color/expressreader_colorPrimary"
+            app:tabIndicatorFullWidth="false"
+            app:tabIndicatorHeight="@dimen/dp_1_5"
+            app:tabMinWidth="@dimen/dp_80"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/expressreader_colorPrimary"
+            app:tabTextAppearance="@style/ExpressReader_TabTextAppearance"
+            app:tabTextColor="@color/expressreader_grey" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_history_local"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_history_action"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:layout_gravity="bottom"
+        android:background="@drawable/expressreader_record_bottom_bg"
+        android:paddingStart="@dimen/dp_8"
+        android:paddingEnd="@dimen/dp_8"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_history_delete_all"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:gravity="center"
+            android:text="@string/expressreader_clear_all"
+            android:textColor="@color/expressreader_summaryTextColor"
+            android:textSize="@dimen/sp_16" />
+
+        <TextView
+            android:id="@+id/tv_history_delete_check"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical|end"
+            android:gravity="center"
+            android:padding="@dimen/dp_4"
+            android:text="@string/expressreader_delete"
+            android:textSize="@dimen/sp_14" />
+
+    </FrameLayout>
+</FrameLayout>

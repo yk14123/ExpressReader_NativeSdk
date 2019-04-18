@@ -1,0 +1,98 @@
+<resources>
+    <!--tab标签 -->
+    <string name="expressreader_app_name">中国快讯</string>
+    <string name="expressreader_hotspot">快讯</string>
+    <string name="expressreader_newspaper">报纸</string>
+    <string name="expressreader_magazine">杂志</string>
+    <string name="expressreader_mine">我的</string>
+
+    <!--MENU 菜单-->
+    <string name="expressreader_menu_font">字体大小</string>
+    <string name="expressreader_menu_bookmarks">收藏</string>
+    <string name="expressreader_menu_share">分享</string>
+
+    <!--MAGAZINE 杂志-->
+    <string name="expressreader_app_exit_tips">再按一次退出应用</string>
+    <string name="expressreader_magazine_units_data_empty">当前数据为空…</string>
+    <string name="expressreader_data_loading">加载中…</string>
+    <string name="expressreader_magazine_unit"> 期</string>
+    <string name="expressreader_magazine_label_cover">封面</string>
+    <string name="expressreader_magazine_label_hot">热门</string>
+    <string name="expressreader_magazine_slide_down">下拉预览杂志</string>
+    <string name="expressreader_magazine_unit_number">期数</string>
+
+    <!--MINE 我的-->
+    <string name="expressreader_mine_favorite">收藏|阅读</string>
+    <string name="expressreader_mine_favorite_label">我的收藏</string>
+    <string name="expressreader_mine_history">阅读历史</string>
+    <string name="expressreader_mine_settings">系统设置</string>
+    <string name="expressreader_mine_font">字体大小</string>
+    <string name="expressreader_mine_language">语言设置</string>
+    <string name="expressreader_mine_app_version">当前版本</string>
+
+    <!--FONT OPTION TEXT 字体-->
+    <string name="expressreader_font_label">字体大小</string>
+    <string name="expressreader_font_largest">特大</string>
+    <string name="expressreader_font_large">大</string>
+    <string name="expressreader_font_normal">中</string>
+    <string name="expressreader_font_small">小</string>
+    <string name="expressreader_cancel">取消</string>
+
+    <!--时间单位-->
+    <string name="expressreader_time_remain">只剩下</string>
+    <string name="expressreader_year_before">年前</string>
+    <string name="expressreader_month">月前</string>
+    <string name="expressreader_day_before">天前</string>
+    <string name="expressreader_days_before">前天</string>
+    <string name="expressreader_hour">小时前</string>
+    <string name="expressreader_minutes_before">分钟前</string>
+    <string name="expressreader_yesterday">昨天</string>
+    <string name="expressreader_day">日</string>
+    <string name="expressreader_minute">分</string>
+    <string name="expressreader_point">点</string>
+
+    <string name="express_hotspot_top">置顶</string>
+    <string name="expressreader_my_channel">我的频道</string>
+    <string name="expressreader_edit">编辑</string>
+    <string name="expressreader_done">完成</string>
+    <string name="expressreader_channel_drag_tips">拖拽可排序频道</string>
+    <string name="expressreader_channel_tap_tips">点击进入频道</string>
+    <string name="expressreader_collapse_text">收起</string>
+    <string name="expressreader_more_text">更多</string>
+
+    <string name="expressreader_locale_zh">中文（简体）</string>
+    <string name="expressreader_locale_en">English</string>
+    <string name="expressreader_locale_ru">Español</string>
+    <string name="expressreader_locale_ar">عربية</string>
+    <string name="expressreader_locale_es">Русский</string>
+    <string name="expressreader_confirm">确认</string>
+    <string name="expressreader_mine_option_content_description">我的选项</string>
+    <string name="expressreader_clear_all">一键清空</string>
+    <string name="expressreader_delete">删除</string>
+    <string name="expressreader_history_edit">编辑阅读记录</string>
+    <string name="expressreader_favorite_edit">编辑我的收藏</string>
+    <string name="expressreader_history_data_empty">暂无阅读数据</string>
+    <string name="favorite_success">收藏成功</string>
+    <string name="favorite_cancel">取消收藏</string>
+    <string name="expressreader_favorite_data_empty">暂无收藏数据</string>
+    <string name="expressreader_data_refresh">暂无数据，下拉刷新</string>
+    <string name="expressreader_delete_count">删除（%d）</string>
+    <string name="expressreader_loading_more">正在加载更多…</string>
+
+    <!--Content Description-->
+    <string name="expressreader_splash_logo">闪屏页面图片</string>
+    <string name="expressreader_newspaper_cover">报社logo</string>
+    <string name="expressreader_news_logo">新闻logo</string>
+    <string name="expressreader_news_image">新闻封面图片</string>
+    <string name="expressreader_magazine_cover">杂志图片</string>
+    <string name="expressreader_image_detail">详情图片</string>
+    <string name="expressreader_back_up">返回上一页</string>
+    <string name="expressreader_magazine_review">浏览往期杂志</string>
+    <string name="expressreader_font_setting">设置字体</string>
+    <string name="expressreader_favorite_action">收藏</string>
+    <string name="expressreader_close">关闭当前页面</string>
+    <string name="expressreader_drag_reorganize">调整新闻标签</string>
+    <string name="expressreader_hot_news">热点资讯</string>
+    <string name="expressreader_clear_all_confirm">确认清除？</string>
+
+</resources>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nsv_magazine_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/expressreader_white"
+    android:overScrollMode="never">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--图图片预览界面-->
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp_magazine_content_images"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_220" />
+
+        <!--新闻标题-->
+        <LinearLayout
+            android:id="@+id/ll_magazine_content_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/vp_magazine_content_images"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_1_5"
+                android:layout_weight="1"
+                android:background="#EDEDED" />
+
+            <ImageView
+                android:id="@+id/iv_issue_detail_slide_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_8"
+                android:background="@drawable/expressreader_icon_arrow_bottom"
+                android:contentDescription="@string/expressreader_magazine_slide_down"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginEnd="@dimen/dp_8" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_1_5"
+                android:layout_weight="1"
+                android:background="#EDEDED" />
+        </LinearLayout>
+
+        <!--新闻标题-->
+        <TextView
+            android:id="@+id/tv_magazine_content_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_magazine_content_line"
+            android:layout_margin="@dimen/dp_12"
+            android:textColor="@color/expressreader_summaryTextColor"
+            android:textSize="@dimen/sp_20"
+            android:textStyle="bold"
+            tools:text="近平同老挝人民革命党中央总书S记国家主席本扬举行会谈" />
+
+        <!--期号-->
+        <LinearLayout
+            android:id="@+id/ll_magazine_content_issueNo"
+            android:layout_width="@dimen/dp_30"
+            android:layout_height="@dimen/dp_30"
+            android:layout_below="@+id/tv_magazine_content_title"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:background="@drawable/expressreader_magazine_issue_number_bg"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#78BEEB"
+                android:gravity="center"
+                android:text="@string/expressreader_magazine_unit_number"
+                android:textColor="@color/expressreader_white"
+                android:textSize="@dimen/sp_9" />
+
+            <TextView
+                android:id="@+id/tv_magazine_content_issueNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="#78BEEB"
+                android:textSize="@dimen/sp_12"
+                tools:text="461" />
+
+        </LinearLayout>
+
+        <!--报社名称-->
+        <TextView
+            android:id="@+id/tv_magazine_content_newsName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/ll_magazine_content_issueNo"
+            android:layout_toEndOf="@+id/ll_magazine_content_issueNo"
+            android:textColor="#444444"
+            android:textSize="@dimen/sp_12"
+            tools:text="人民日报" />
+
+        <!--新闻发表时间-->
+        <TextView
+            android:id="@+id/tv_magazine_content_publishDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_magazine_content_newsName"
+            android:layout_alignBottom="@id/ll_magazine_content_issueNo"
+            android:layout_toEndOf="@+id/ll_magazine_content_issueNo"
+            android:textColor="@color/expressreader_timeTextColor"
+            android:textSize="@dimen/sp_11"
+            tools:text="2分钟前" />
+
+        <!--新闻内容-->
+        <WebView
+            android:id="@+id/wv_magazine_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_magazine_content_issueNo"
+            android:layout_margin="@dimen/dp_8" />
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>
+

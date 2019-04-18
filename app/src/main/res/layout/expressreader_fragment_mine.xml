@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.mine.MineFragment">
+
+    <include layout="@layout/expressreader_include_appbar_layout" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_10"
+        android:text="@string/expressreader_mine_favorite"
+        android:textColor="#888888"
+        android:textSize="@dimen/sp_12" />
+
+    <LinearLayout
+        android:id="@+id/fl_mine_favorite"
+        style="@style/ExpressReader_MineLinearLayoutStyle">
+
+        <ImageView
+            style="@style/ExpressReader_MineIconStyle"
+            android:background="@drawable/expressreader_icon_favorite"
+            android:contentDescription="@string/expressreader_mine_option_content_description" />
+
+        <TextView
+            style="@style/ExpressReader_MineTextStyle"
+            android:text="@string/expressreader_mine_favorite_label" />
+
+        <ImageView
+            style="@style/ExpressReader_MineIconStyle"
+            android:background="@drawable/expressreader_icon_arrow_right"
+            android:contentDescription="@string/expressreader_mine_option_content_description" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fl_mine_record"
+        style="@style/ExpressReader_MineLinearLayoutStyle"
+        android:layout_marginTop="@dimen/dp_1">
+
+        <ImageView
+            style="@style/ExpressReader_MineIconStyle"
+            android:background="@drawable/expressreader_icon_history"
+            android:contentDescription="@string/expressreader_mine_option_content_description" />
+
+        <TextView
+            style="@style/ExpressReader_MineTextStyle"
+            android:text="@string/expressreader_mine_history" />
+
+        <ImageView
+            style="@style/ExpressReader_MineIconStyle"
+            android:background="@drawable/expressreader_icon_arrow_right"
+            android:contentDescription="@string/expressreader_mine_option_content_description" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_10"
+        android:text="@string/expressreader_mine_settings"
+        android:textColor="#888888"
+        android:textSize="@dimen/sp_12" />
+
+    <LinearLayout
+        android:id="@+id/fl_mine_font"
+        style="@style/ExpressReader_MineLinearLayoutStyle">
+
+        <ImageView
+            style="@style/ExpressReader_MineIconStyle"
+            android:background="@drawable/expressreader_icon_font"
+            android:contentDescription="@string/expressreader_mine_option_content_description" />
+
+        <TextView
+            style="@style/ExpressReader_MineTextStyle"
+            android:gravity="start"
+            android:text="@string/expressreader_mine_font" />
+
+        <TextView
+            android:id="@+id/tv_mine_fontSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:textColor="#BBBBBB"
+            tools:text="中" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fl_mine_locale"
+        style="@style/ExpressReader_MineLinearLayoutStyle"
+        android:layout_marginBottom="@dimen/dp_1"
+        android:layout_marginTop="@dimen/dp_1">
+
+        <ImageView
+            style="@style/ExpressReader_MineIconStyle"
+            android:background="@drawable/expressreader_icon_locale"
+            android:contentDescription="@string/expressreader_mine_option_content_description" />
+
+        <TextView
+            style="@style/ExpressReader_MineTextStyle"
+            android:text="@string/expressreader_mine_language" />
+
+        <ImageView
+            style="@style/ExpressReader_MineIconStyle"
+            android:background="@drawable/expressreader_icon_arrow_right"
+            android:contentDescription="@string/expressreader_mine_option_content_description" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fl_mine_version"
+        style="@style/ExpressReader_MineLinearLayoutStyle">
+
+        <ImageView
+            style="@style/ExpressReader_MineIconStyle"
+            android:background="@drawable/expressreader_icon_version"
+            android:contentDescription="@string/expressreader_mine_option_content_description" />
+
+        <TextView
+            style="@style/ExpressReader_MineTextStyle"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:text="@string/expressreader_mine_app_version" />
+
+        <TextView
+            android:id="@+id/tv_mine_appVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:textColor="#BBBBBB"
+            tools:text="2.0.0" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--设置字体大小控件-->
+    <declare-styleable name="ExpandableTextView">
+        <attr name="maxCollapsedLines" format="integer" />
+        <attr name="animDuration" format="integer" />
+        <attr name="animAlphaStart" format="float" />
+        <attr name="expandIndicator" format="reference" />
+        <attr name="collapseIndicator" format="reference" />
+        <attr name="expandToggleType" format="enum">
+            <enum name="ImageButton" value="0" />
+            <enum name="TextView" value="1" />
+        </attr>
+        <attr name="expandableTextId" format="reference" />
+        <attr name="expandCollapseToggleId" format="reference" />
+        <attr name="expandToggleOnTextClick" format="boolean" />
+    </declare-styleable>
+
+    <!--TagText相关属性-->
+    <declare-styleable name="TagText">
+        <!--tag的文字颜色-->
+        <attr name="tagTextColor" format="color|reference" />
+        <!--tag的文字大小-->
+        <attr name="tagTextSize" format="dimension|reference" />
+        <!--tag的文字-->
+        <attr name="tagText" format="string|reference" />
+        <!--tag的背景素材-->
+        <attr name="tagDrawable" format="reference" />
+
+    </declare-styleable>
+
+
+</resources>

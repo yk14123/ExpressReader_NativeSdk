@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/dp_10"
+    app:cardElevation="@dimen/dp_3"
+    app:contentPaddingBottom="@dimen/dp_10"
+    app:contentPaddingLeft="@dimen/dp_10"
+    app:contentPaddingRight="@dimen/dp_10">
+
+    <com.cnpeak.expressreader.view.widget.ExpandableTextView
+        android:id="@+id/etv_newspaper_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:animAlphaStart="1"
+        app:collapseIndicator="@string/expressreader_collapse_text"
+        app:expandIndicator="@string/expressreader_more_text"
+        app:expandToggleType="TextView"
+        app:maxCollapsedLines="3">
+
+        <TextView
+            android:id="@+id/tv_newspaper_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_50"
+            android:paddingTop="@dimen/dp_2"
+            android:textColor="@color/expressreader_summaryTextColor"
+            android:textSize="@dimen/sp_16"
+            tools:text="经济日报" />
+
+        <TextView
+            android:id="@+id/expandable_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_newspaper_icon"
+            android:layout_marginTop="@dimen/dp_8"
+            android:ellipsize="end"
+            android:lineSpacingExtra="@dimen/dp_6"
+            android:textSize="@dimen/sp_13"
+            tools:text="《每日新闻》是日本一家全国发行的报纸，也是日本现有历史最悠久的报纸，由每日新闻社出版。其最早前身为1872年2月21日创刊的《东京日日新闻》，1911年3月1日与《大阪每日新闻》合并，不过它们持续使用原名在东京及大阪两地分开发行，至1943年才共同使用现名，目前以东京、名古屋、大阪、福冈4地为主要发行据点。" />
+
+        <View
+            android:id="@+id/expand_line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:layout_below="@+id/expandable_text"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_marginBottom="@dimen/dp_8"
+            android:background="#EEEEEE" />
+
+        <TextView
+            android:id="@+id/expand_collapse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/expand_line"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:textColor="#1482F0"
+            android:textSize="@dimen/sp_12" />
+    </com.cnpeak.expressreader.view.widget.ExpandableTextView>
+
+</androidx.cardview.widget.CardView>
+

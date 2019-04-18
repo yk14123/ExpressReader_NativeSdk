@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/ExpressReader_FontSettingTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/expressreader_font_label"
+        android:textColor="#61686D"
+        android:textSize="@dimen/sp_13" />
+
+    <TextView
+        android:id="@+id/tv_font_option_largest"
+        style="@style/ExpressReader_FontSettingTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/expressreader_font_largest" />
+
+    <TextView
+        android:id="@+id/tv_font_option_large"
+        style="@style/ExpressReader_FontSettingTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/expressreader_font_large" />
+
+    <TextView
+        android:id="@+id/tv_font_option_normal"
+        style="@style/ExpressReader_FontSettingTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/expressreader_font_normal" />
+
+    <TextView
+        android:id="@+id/tv_font_option_small"
+        style="@style/ExpressReader_FontSettingTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/expressreader_font_small" />
+
+    <TextView
+        android:id="@+id/tv_font_option_cancel"
+        style="@style/ExpressReader_FontSettingTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/expressreader_cancel"
+        android:textColor="#F00" />
+
+</LinearLayout>
