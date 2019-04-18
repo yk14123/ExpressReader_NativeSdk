@@ -108,14 +108,12 @@ public class UIHelper {
      * 跳转大图浏览界面
      *
      * @param imgUrls      图片地址数组
-     * @param defaultIndex 当前默认索引
-     * @param showIndex    是否需要显示索引
+     * @param defaultIndex 是否显示默认的索引位置（<0时不显示索引位置）
      */
-    public static void startImageActivity(Context context, List<String> imgUrls, int defaultIndex, boolean showIndex) {
+    public static void startImageActivity(Context context, List<String> imgUrls, int defaultIndex) {
         Intent intent = new Intent(context, ImageDetailActivity.class);
         intent.putStringArrayListExtra(ErConstant.IMAGE_DETAIL_URLS, new ArrayList<>(imgUrls));
         intent.putExtra(ErConstant.IMAGE_CURRENT_INDEX, defaultIndex);
-        intent.putExtra(ErConstant.IMAGE_SHOW_FLAG, showIndex);
         context.startActivity(intent);
     }
 

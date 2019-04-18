@@ -139,4 +139,14 @@ public interface ApiService {
     @Headers({"Content-Type: application/json; charset=utf-8"})
     @POST("/api/Receipt/GoogleReceipt")
     Observable<PayStatus> sendPayReceipt(@Body JsonObject requestBody);
+
+    /**
+     * 获取Microsoft授权信息
+     * https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken
+     */
+    @Headers("Authorization:Bearer;Content-Type:application/ssml+xml;X-Microsoft-OutputFormat:audio-16khz-64kbitrate-mono-mp3;User-Agent:ExpressReader")
+    @POST("/cognitiveservices/v1")
+    Observable getAccessToken(@Query("fetchUri") String fetchUri, @Query("subscriptionKey") String subscriptionKey);
+
+
 }

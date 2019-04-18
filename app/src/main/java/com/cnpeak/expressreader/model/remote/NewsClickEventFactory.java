@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.cnpeak.expressreader.global.ErConstant;
 import com.cnpeak.expressreader.net.ApiManager;
+import com.cnpeak.expressreader.net.ApiService;
 import com.google.gson.JsonObject;
 
 import retrofit2.Call;
@@ -27,7 +28,7 @@ public class NewsClickEventFactory {
         jsonObject.addProperty(ErConstant.LCID, LCID);
 
         ApiManager.builder()
-                .getService()
+                .createServiceFrom(ApiService.class)
                 .sendNewsClickEvent(jsonObject)
                 .enqueue(new Callback<Void>() {
                     @Override

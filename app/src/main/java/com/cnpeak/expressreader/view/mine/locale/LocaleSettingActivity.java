@@ -17,7 +17,6 @@ import com.cnpeak.expressreader.base.BasePresenter;
 import com.cnpeak.expressreader.interf.OnItemClickListener;
 import com.cnpeak.expressreader.model.bean.LCID;
 import com.cnpeak.expressreader.utils.LocaleHelper;
-import com.cnpeak.expressreader.utils.UIHelper;
 import com.cnpeak.expressreader.view.home.ErHomeActivity;
 
 import java.util.ArrayList;

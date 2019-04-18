@@ -166,7 +166,7 @@ public class MagazineUnitActivity extends BaseActivity<MagazineUnitView, Magazin
                 //点击封面事件
                 ArrayList<String> urls = new ArrayList<>(1);
                 urls.add(coverUrl);
-                UIHelper.startImageActivity(mContext, urls, 0, false);
+                UIHelper.startImageActivity(mContext, urls, -1);
             }
         });
         mMagazineUnitRecycler.setAdapter(mMagazineIssueAdapter);

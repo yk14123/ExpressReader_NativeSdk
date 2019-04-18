@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_action_copy"
+        android:icon="@drawable/expressreader_icon_pre"
+        android:title="@string/expressreader_menu_copy"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_action_translate"
+        android:icon="@drawable/expressreader_icon_bookmark_normal"
+        android:title="@string/expressreader_menu_translate"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_action_share"
+        android:icon="@drawable/expressreader_icon_share"
+        android:title="@string/expressreader_menu_share"
+        app:showAsAction="ifRoom" />
+
+</menu>

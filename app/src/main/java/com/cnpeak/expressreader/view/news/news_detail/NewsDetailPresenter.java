@@ -4,9 +4,11 @@ import android.util.Log;
 
 import com.cnpeak.expressreader.analytics.AnalyticsAgent;
 import com.cnpeak.expressreader.base.BasePresenter;
+import com.cnpeak.expressreader.interf.TranslateEventCallback;
 import com.cnpeak.expressreader.model.bean.HotSpot;
 import com.cnpeak.expressreader.model.dao.HotSpotDaoImpl;
 import com.cnpeak.expressreader.model.db.SQLConstant;
+import com.cnpeak.expressreader.model.remote.TranslatorModuleFactory;
 
 import java.util.List;
 
@@ -17,15 +19,25 @@ import io.reactivex.schedulers.Schedulers;
 
 
 /**
+ * The type News detail presenter.
+ *
  * @author builder by HUANG JIN on ${date}
  * @version 1.0
  */
 public class NewsDetailPresenter extends BasePresenter<NewsDetailView> {
 
+    /**
+     * The constant TAG.
+     */
     public static final String TAG = NewsDetailPresenter.class.getSimpleName();
 
     private NewsDetailView mView;
 
+    /**
+     * Instantiates a new News detail presenter.
+     *
+     * @param iView the view
+     */
     NewsDetailPresenter(NewsDetailView iView) {
         this.mView = iView;
     }
@@ -37,6 +49,8 @@ public class NewsDetailPresenter extends BasePresenter<NewsDetailView> {
      * 返回列表不为空，则判断当前列表条目是否存在dbType = 0 的数据，不存在需要插入一条阅读历史类型的数据
      * <p>
      * 结果：返回列表为空，则回到favorFlag = 0;反之返回favorFlag = 1;
+     *
+     * @param hotSpot the hot spot
      */
     void queryTypeByNID(final HotSpot hotSpot) {
         HotSpotDaoImpl.queryNewsByNID(hotSpot.getNID())
@@ -61,14 +75,14 @@ public class NewsDetailPresenter extends BasePresenter<NewsDetailView> {
                     public void onNext(List<HotSpot> hotSpots) {
                         if (hotSpots == null || hotSpots.size() == 0) {
                             Log.d(TAG, "onNext: 收藏数据不存在 >>> ");
-                            mView.setFavorFlag(true, false, false);
+                            mView.onFavorStateChanged(true, false, false);
                         } else {
                             if (exists(SQLConstant.DB_TYPE_FAVORITE, hotSpots)) {
                                 Log.d(TAG, "onNext: 收藏数据存在 >>> ");
-                                mView.setFavorFlag(true, true, false);
+                                mView.onFavorStateChanged(true, true, false);
                             } else {
                                 Log.d(TAG, "onNext: 收藏数据不存在 >>> ");
-                                mView.setFavorFlag(true, false, false);
+                                mView.onFavorStateChanged(true, false, false);
                             }
                         }
                     }
@@ -111,7 +125,7 @@ public class NewsDetailPresenter extends BasePresenter<NewsDetailView> {
                     public void onNext(Long rowId) {
                         if (dbType == SQLConstant.DB_TYPE_FAVORITE) {
                             Log.d(TAG, "当前收藏记录插入完毕 rowId >>>" + rowId);
-                            mView.setFavorFlag(rowId > 0, true, true);
+                            mView.onFavorStateChanged(rowId > 0, true, true);
                         } else {
                             Log.d(TAG, "当前历史记录插入完毕 rowId >>>" + rowId);
                         }
@@ -136,19 +150,19 @@ public class NewsDetailPresenter extends BasePresenter<NewsDetailView> {
      * @param NID    当前新闻数据的NID
      * @param dbType 当前数据的数据库类型
      */
-    public void deleteNIDByType(String NID, final int dbType) {
+    void deleteNIDByType(String NID, final int dbType) {
         HotSpotDaoImpl.deleteNewsByNID(NID, dbType)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new DisposableObserver<Integer>() {
                     @Override
                     public void onNext(Integer rowId) {
-                        Log.d(TAG, "deleteNIDByType: rowId >>> " + rowId);
-                        mView.setFavorFlag(rowId > 0, false, true);
+                        Log.d(TranslatorModuleFactory.TAG, "deleteNIDByType: rowId >>> " + rowId);
+                        mView.onFavorStateChanged(rowId > 0, false, true);
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d(TAG, "deleteNIDByType onError: >>> " + e.getMessage());
+                        Log.d(TranslatorModuleFactory.TAG, "deleteNIDByType onError: >>> " + e.getMessage());
                     }
 
                     @Override
@@ -159,10 +173,34 @@ public class NewsDetailPresenter extends BasePresenter<NewsDetailView> {
 
     }
 
-    void sentNewsClickEvent(String NID, String latitude, String longitude, String LCID) {
+
+    /**
+     * 发送新闻阅读统计事件
+     *
+     * @param NID       当前新闻唯一标示
+     * @param latitude  当前纬度位置
+     * @param longitude 当前经度位置
+     * @param LCID      当前语系
+     */
+    void sentEvent(String NID, String latitude, String longitude, String LCID) {
         //当前页面完全展示之后，向服务器提交一次统计
         AnalyticsAgent.builder().onNewsClickEvent(NID,
                 latitude, longitude, "", LCID);
+    }
+
+    /**
+     * 翻译当前文本
+     *
+     * @param content 翻译文本内容
+     */
+    void translateText(String content, TranslateEventCallback callback) {
+        TranslatorModuleFactory.translate(content, "cn", "en", callback);
+//        try {
+//            String post = Translator.Post(content);
+//            Log.d(TAG, "translateText: post >>> " + post);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
 }

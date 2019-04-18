@@ -1,20 +1,17 @@
 package com.cnpeak.expressreader.view.news.news_detail;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.content.pm.PackageManager;
 import android.content.res.Configuration;
-import android.graphics.Bitmap;
 
-import androidx.annotation.NonNull;
 import androidx.core.widget.NestedScrollView;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 
-import android.os.Build;
-import android.speech.tts.TextToSpeech;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.TypedValue;
@@ -23,12 +20,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.webkit.WebChromeClient;
-import android.webkit.WebResourceError;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -41,23 +32,28 @@ import com.cnpeak.expressreader.global.ErConstant;
 import com.cnpeak.expressreader.interf.OnFontOptionListener;
 import com.cnpeak.expressreader.model.bean.HotSpot;
 import com.cnpeak.expressreader.model.db.SQLConstant;
-import com.cnpeak.expressreader.permission.PermissionHelper;
+import com.cnpeak.expressreader.tts.Synthesizer;
+import com.cnpeak.expressreader.tts.Voice;
 import com.cnpeak.expressreader.utils.GlideCircleTransform;
-import com.cnpeak.expressreader.utils.LocaleHelper;
 import com.cnpeak.expressreader.utils.LogUtils;
 import com.cnpeak.expressreader.utils.SpUtil;
 import com.cnpeak.expressreader.utils.ToastUtils;
+import com.cnpeak.expressreader.utils.UIHelper;
 import com.cnpeak.expressreader.view.dialog.FontSettingsDialog;
+import com.cnpeak.expressreader.view.widget.web.ActionWebCallback;
+import com.cnpeak.expressreader.view.widget.web.ActionWebView;
+import com.cnpeak.expressreader.view.widget.web.JsToAndroid;
 
 import java.io.Serializable;
-import java.util.Locale;
+import java.util.List;
 
 /**
  * @author builder by HUANG JIN on 18/11/12
  * @version 1.0
  * 热点资讯详情加载页面
  */
-public class NewsDetailActivity extends BaseActivity<NewsDetailView, NewsDetailPresenter> implements NewsDetailView {
+public class NewsDetailActivity extends BaseActivity<NewsDetailView, NewsDetailPresenter>
+        implements NewsDetailView, ActionWebCallback {
     private static final String TAG = NewsDetailActivity.class.getSimpleName();
     //控制器
     private NewsDetailPresenter mDetailPresenter;
@@ -67,22 +63,55 @@ public class NewsDetailActivity extends BaseActivity<NewsDetailView, NewsDetailP
     private Toolbar mToolBar;
     //WebView
     private FrameLayout mFlVideoView;
-    private WebView mWebView;
-    //Js调用对象
-    private JsToAndroid mJsToAndroid;
+    private ActionWebView mWebView;
     //HotSpot实体Bean对象
     private HotSpot mHotSpot;
     //底部字号选择框
     private FontSettingsDialog mFontOptionDialog;
     //是否被收藏
     private boolean mFavorFlag;
-    //是否向服务器发送过统计事件
-    private boolean hasSendEvent = false;
 
+    // 语音合成对象
+    private Synthesizer mSynthesizer;
     //文字转语音播报
-    private TextToSpeech mTtsClient;
-    private String httpContext;
+    private String mHttpContext;
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        //页面暂停状态，合成暂停
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        //销毁当前合成对象
+        if (mSynthesizer != null) {
+            mSynthesizer.stopSound();
+        }
+        //解决WebView带来的内存泄漏问题
+        if (mWebView != null) {
+            mWebView.releaseAction();
+            mWebView.setWebViewClient(null);
+            mWebView.setWebChromeClient(null);
+            mWebView.loadDataWithBaseURL(null, "",
+                    "text/html", "utf-8", null);
+            mWebView.clearHistory();
+            ((ViewGroup) mWebView.getParent()).removeView(mWebView);
+            mWebView.destroy();
+            mWebView = null;
+        }
+        super.onDestroy();
+    }
 
     @Override
     protected int getActivityLayoutId() {
@@ -119,32 +148,19 @@ public class NewsDetailActivity extends BaseActivity<NewsDetailView, NewsDetailP
         initWebView();
         //初始化页面数据
         initData();
+        //初始化TTS客户端
+//        initTtsClient();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        if (!hasSendEvent) {
-            checkLocationPermission();
-        }
-    }
-
-    private void checkLocationPermission() {
-        if (PermissionHelper.checkPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION)) {
-            sendEvent();
-        } else {
-            PermissionHelper.requestRuntimePermission(this, new String[]
-                    {Manifest.permission.ACCESS_FINE_LOCATION}, 1001);
-        }
-    }
-
-    private void sendEvent() {
-        String[] locationInfo = PermissionHelper.getKnownLocation(mContext);
-        mDetailPresenter.sentNewsClickEvent(mHotSpot.getNID(), locationInfo[0],
-                locationInfo[1], LocaleHelper.getLCID(mContext));
-        Log.d(TAG, "sendEvent: >>>" + locationInfo[0]);
-        hasSendEvent = true;
+    private void initTtsClient() {
+        // 初始化合成对象
+        Voice voice = new Voice.Builder()
+                .setLang("zh-CN")
+                .setGender("Female")
+                .setRate("-10.00%")
+                .setVoiceName("Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)")
+                .build();
+        mSynthesizer = Synthesizer.getDefault(voice);
     }
 
     private void initToolbar() {
@@ -200,10 +216,9 @@ public class NewsDetailActivity extends BaseActivity<NewsDetailView, NewsDetailP
                             .transform(new GlideCircleTransform(mContext)))
                     .into(ivNewsIcon);
 
-//            String httpContext = mHotSpot.getHttpContext();
-            httpContext = mHotSpot.getHttpContext();
-            if (!TextUtils.isEmpty(httpContext)) {
-                mWebView.loadData(httpContext, "text/html; charset=UTF-8", null);
+            mHttpContext = mHotSpot.getHttpContext();
+            if (!TextUtils.isEmpty(mHttpContext)) {
+                mWebView.loadData(mHttpContext, "text/html; charset=UTF-8", null);
             } else {
                 LogUtils.i(TAG, "当前内容详情参数为空，请检查数据 >>> ");
             }
@@ -215,19 +230,11 @@ public class NewsDetailActivity extends BaseActivity<NewsDetailView, NewsDetailP
         //页面标题
         mTvNewsTitle = findViewById(R.id.tv_news_detail_title);
         mWebView = findViewById(R.id.wv_news_detail);
-        mWebView.setVerticalScrollBarEnabled(false);//不能垂直滑动
-        mWebView.setHorizontalScrollBarEnabled(false);//不能水平滑动
-        WebSettings settings = mWebView.getSettings();
-        //settings.setUseWideViewPort(true);//调整到适合webView的大小，不过尽量不要用，有些手机有问题
-        settings.setLoadWithOverviewMode(true);//设置WebView是否使用预览模式加载界面。
-        settings.setJavaScriptCanOpenWindowsAutomatically(true);//支持通过JS打开新窗口
-        settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);//支持内容重新布局
-        //设置WebView属性，能够执行Javascript脚本
-        settings.setJavaScriptEnabled(true);//设置js可用
-        mJsToAndroid = new JsToAndroid(mContext);
-        mWebView.addJavascriptInterface(mJsToAndroid, "_expressReaderJsConnect");//设置js接口
-        mWebView.setWebViewClient(new ErWebViewClient());
-        mWebView.setWebChromeClient(new ErWebChromeClient());
+        //是否显示自定义菜单
+        mWebView.isCustomMenu(false);
+        //Js调用对象
+        mWebView.addJsInterface(new JsToAndroid(this), "JsToAndroid");//设置js接口
+
         //初始化内容的字体大小
         int fontOption = SpUtil.getInt(mContext, ErConstant.FONT_OPTION, FontSettingsDialog.FONT_NORMAL);
         setFontSize(fontOption);
@@ -264,7 +271,7 @@ public class NewsDetailActivity extends BaseActivity<NewsDetailView, NewsDetailP
      * @param showToast 是否需要吐司提示
      */
     @Override
-    public void setFavorFlag(boolean result, boolean favorFlag, boolean showToast) {
+    public void onFavorStateChanged(boolean result, boolean favorFlag, boolean showToast) {
         if (result) {
             mFavorFlag = favorFlag;
             invalidateOptionsMenu();
@@ -274,6 +281,7 @@ public class NewsDetailActivity extends BaseActivity<NewsDetailView, NewsDetailP
             }
         }
     }
+
 
     /**
      * 初始化选项菜单
@@ -330,130 +338,50 @@ public class NewsDetailActivity extends BaseActivity<NewsDetailView, NewsDetailP
             intent.setType("image/png");
             startActivity(intent);
         }
+//        else if (i == R.id.menu_action_tts) {
+//            if (mSynthesizer != null) {
+//                mSynthesizer.speakToAudio(mHttpContext);
+//            }
+//        }
         return true;
     }
 
-    private void initTextToSpeech() {
-        mTtsClient = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
-            @Override
-            public void onInit(int status) {
-                if (status == TextToSpeech.SUCCESS) {
-                    LogUtils.d(TAG, "onInit: TextToSpeech success...");
-                    //设置语言模式
-                    Locale locale = LocaleHelper.getLocale(mContext);
-                    String language = locale.getLanguage();
-                    String country = locale.getCountry();
-
-                    LogUtils.d(TAG, "onInit: language >>> " + language + "  country >>> " + country);
-
-                    int languageAvailable = mTtsClient.isLanguageAvailable(locale);
-                    LogUtils.d(TAG, "onInit: languageAvailable >>> " + languageAvailable);
-                    if (languageAvailable == TextToSpeech.LANG_NOT_SUPPORTED || languageAvailable == TextToSpeech.LANG_MISSING_DATA) {
-                        ToastUtils.showS(mContext, "当前引擎不支持中文语系，请检查...");
-                        mTtsClient.setLanguage(Locale.ENGLISH);
-                    } else {
-                        LogUtils.d(TAG, "onInit: 支持当前语系 >>>");
-                        mTtsClient.setLanguage(locale);
-                    }
-
-                    if (!TextUtils.isEmpty(httpContext)) {
-                        // 设置音调，值越大声音越尖（女生），值越小则变成男声,1.0是常规
-                        mTtsClient.setPitch(1.0f);
-//                        // 设置语速
-//                        mTtsClient.setSpeechRate(1.0f);
-                        //开始播放
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                            mTtsClient.speak(httpContext, TextToSpeech.QUEUE_ADD, null, null);
-                        } else {
-                            mTtsClient.speak(httpContext, TextToSpeech.QUEUE_ADD, null);
-                        }
-                    }
-                } else {
-                    ToastUtils.showS(mContext, "初始化语音引擎失败..");
-                }
-            }
-        });
-
+    @Override
+    public void onZoomPicture(List<String> imgUrls, int defaultIndex) {
+        UIHelper.startImageActivity(mContext, imgUrls, defaultIndex);
     }
 
-    /**
-     * WebView客户端对象
-     */
-    private class ErWebViewClient extends WebViewClient {
-
-        @Override
-        public void onPageStarted(WebView view, String url, Bitmap favicon) {
-            LogUtils.i(TAG, "onPageStarted >>> ");
-            super.onPageStarted(view, url, favicon);
-        }
-
-        @Override
-        public void onPageFinished(WebView view, String url) {
-            super.onPageFinished(view, url);
-            mJsToAndroid.setHtmlElementStyle(mWebView);
-        }
-
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            //防止当前应用采用系统自带的浏览器打开，需要复写此方法；
-            view.loadUrl(url);
-            return super.shouldOverrideUrlLoading(view, url);
-        }
-
-        @Override
-        public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
-            super.onReceivedError(view, request, error);
+    @Override
+    public void onTranslate(int menuId, String content) {
+        Log.d(TAG, "onTranslate: menuId >>> " + menuId);
+        Log.d(TAG, "onTranslate: content >>> " + content);
+        switch (menuId) {
+//            case 0: //实现内容翻译功能
+//                mDetailPresenter.translateText(content, this);
+//                break;
+            case 1: //复制到剪贴板中
+                ClipboardManager clipboardManager = (ClipboardManager)
+                        getSystemService(Context.CLIPBOARD_SERVICE);
+                //setText()已经过时，采用新的API
+                clipboardManager.setPrimaryClip(ClipData.newPlainText("", content));
+                ToastUtils.showS(mContext, "复制成功");
+                break;
         }
     }
 
-    //全屏监听对象
-    WebChromeClient.CustomViewCallback mCallback;
-    View mCustomView;
-
-    private class ErWebChromeClient extends WebChromeClient {
-        @Override
-        public void onProgressChanged(WebView view, int newProgress) {
-            LogUtils.d(TAG, "onProgressChanged: newProgress >>> " + newProgress);
-        }
-
-        //H5请求全屏时会调用此方法
-        @Override
-        public void onShowCustomView(View view, CustomViewCallback callback) {
-            LogUtils.d(TAG, "onShowCustomView: >>>");
-            requestFullScreen(true);
-            mCustomView = view;
-            mCallback = callback;
-            if (mCustomView != null) {
-                mFlVideoView.addView(mCustomView);
-            }
-        }
-
-        //H5推出全屏时会调用
-        @Override
-        public void onHideCustomView() {
-            LogUtils.d(TAG, "onHideCustomView: >>>");
-            requestFullScreen(false);
-            if (mCustomView != null) {
-                mFlVideoView.removeView(mCustomView);
-                mCustomView = null;
-            }
-            if (mCallback != null) {
-                mCallback.onCustomViewHidden();
-                mCallback = null;
-            }
-        }
-    }
-
-    private void requestFullScreen(boolean fullScreen) {
+    @Override
+    public void onPlayVideo(boolean fullScreen, View customView) {
         if (fullScreen) {
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
             mNestedScrollView.setVisibility(View.GONE);
             mToolBar.setVisibility(View.GONE);
             mFlVideoView.setVisibility(View.VISIBLE);
         } else {
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN, WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
             mNestedScrollView.setVisibility(View.VISIBLE);
             mToolBar.setVisibility(View.VISIBLE);
             mFlVideoView.setVisibility(View.GONE);
@@ -464,18 +392,14 @@ public class NewsDetailActivity extends BaseActivity<NewsDetailView, NewsDetailP
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
 
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode) {
-            case 1001:
-                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    sendEvent();
-                } else {
-                    Log.d(TAG, "onRequestPermissionsResult: 地理位置权限缺失 ...");
-                }
-                break;
+        if (fullScreen) {
+            if (customView != null) {
+                mFlVideoView.addView(customView);
+            }
+        } else {
+            if (customView != null) {
+                mFlVideoView.removeView(customView);
+            }
         }
     }
 
@@ -488,29 +412,5 @@ public class NewsDetailActivity extends BaseActivity<NewsDetailView, NewsDetailP
             super.onBackPressed();
     }
 
-    @Override
-    protected void onDestroy() {
-        hasSendEvent = false;
-
-        if (mJsToAndroid != null) {
-            mJsToAndroid = null;
-        }
-        //解决WebView带来的内存泄漏问题
-        if (mWebView != null) {
-            mWebView.setWebViewClient(null);
-            mWebView.setWebChromeClient(null);
-            mWebView.loadDataWithBaseURL(null, "", "text/html", "utf-8", null);
-            mWebView.clearHistory();
-            ((ViewGroup) mWebView.getParent()).removeView(mWebView);
-            mWebView.destroy();
-            mWebView = null;
-        }
-
-        if (mTtsClient != null) {
-            mTtsClient.stop();
-            mTtsClient.shutdown();
-        }
-        super.onDestroy();
-    }
 
 }

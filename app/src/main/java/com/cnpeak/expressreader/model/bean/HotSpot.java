@@ -3,6 +3,7 @@ package com.cnpeak.expressreader.model.bean;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+
 import android.text.TextUtils;
 
 import java.io.Serializable;
@@ -12,7 +13,6 @@ import java.util.List;
 /**
  * @author builder by HUANG JIN on 18/11/6
  * @version 1.0
- * @description
  */
 @Entity
 public class HotSpot implements Serializable {

@@ -1,8 +1,10 @@
 package com.cnpeak.expressreader.view.mine.locale;
 
 import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,6 +19,7 @@ import com.cnpeak.expressreader.global.ErConstant;
 import com.cnpeak.expressreader.interf.OnItemClickListener;
 import com.cnpeak.expressreader.model.bean.LCID;
 import com.cnpeak.expressreader.utils.SpUtil;
+
 import java.util.List;
 
 /**
@@ -92,7 +95,7 @@ public class LocaleAdapter extends RecyclerView.Adapter<LocaleAdapter.LocaleView
         }
     }
 
-    public void setLocaleChangedListener(OnItemClickListener<LCID> localeChangedListener) {
+    void setLocaleChangedListener(OnItemClickListener<LCID> localeChangedListener) {
         this.localeChangedListener = localeChangedListener;
     }
 

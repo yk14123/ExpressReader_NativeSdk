@@ -2,6 +2,7 @@ package com.cnpeak.expressreader.model.remote;
 
 import com.cnpeak.expressreader.net.ApiManager;
 import com.cnpeak.expressreader.model.bean.IssueUnit;
+import com.cnpeak.expressreader.net.ApiService;
 
 import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
@@ -20,7 +21,8 @@ public class IssueUnitModuleFactory {
      */
     public static Observable<IssueUnit> getIssueUnit(String MnID) {
         //从网络中获取热点资讯数据更新
-        return ApiManager.builder().getService().getIssueUnit(MnID).subscribeOn(Schedulers.io());
+        return ApiManager.builder().createServiceFrom(ApiService.class)
+                .getIssueUnit(MnID).subscribeOn(Schedulers.io());
     }
 
 }

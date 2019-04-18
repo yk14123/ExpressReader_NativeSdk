@@ -13,6 +13,16 @@ public class ErConstant {
 
     public static final String BASE_SERVER_URL = "https://api.expressreader.chinafocus.net";
 
+    //Microsoft API KEY
+    public static final String TRANSLATOR_SUBSCRIPTION_KEY = "3f9c2858ef78400bbef2674209090b11";
+    public static final String TRANSLATOR_API = "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=zh&to=en";
+
+    public static final String TTS_SUBSCRIPTION_KEY = "e41d44a3f5c84d818d23ce46a2834feb";
+    public static final String TTS_API = "https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1";
+
+    //科大讯飞APP_ID
+    public static final String APP_KEY = "5c9ae72a";
+
     //参数常量key
     public static final String HOTSPOT_DATA_BEAN = "hotspot_data_bean";
     public static final String IMAGE_DETAIL_URLS = "image_detail_urls";

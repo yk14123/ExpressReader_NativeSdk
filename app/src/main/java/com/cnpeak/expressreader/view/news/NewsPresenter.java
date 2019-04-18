@@ -9,11 +9,12 @@ import com.cnpeak.expressreader.model.remote.StickTopModuleFactory;
 import com.cnpeak.expressreader.utils.LogUtils;
 
 import java.util.List;
+
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableObserver;
 
 /**
- * @author builder by HUANG JIN on ${date}
+ * @author builder by HUANG JIN
  * @version 1.0
  */
 public class NewsPresenter extends BasePresenter<NewsView> {
@@ -55,7 +56,7 @@ public class NewsPresenter extends BasePresenter<NewsView> {
      *
      * @param LCID 国家码
      */
-    public void getStickTop(String LCID) {
+    void getStickTop(String LCID) {
         StickTopModuleFactory.getStickTop(LCID)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new DisposableObserver<List<HotSpot>>() {

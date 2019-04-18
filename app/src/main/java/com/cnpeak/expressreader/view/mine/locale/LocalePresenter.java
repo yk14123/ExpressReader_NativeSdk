@@ -6,10 +6,6 @@ import android.util.Log;
 import com.cnpeak.expressreader.ErApplication;
 import com.cnpeak.expressreader.base.BasePresenter;
 import com.cnpeak.expressreader.model.bean.LCID;
-import com.cnpeak.expressreader.model.dao.HotSpotDaoImpl;
-import com.cnpeak.expressreader.model.dao.IssueUnitDaoImpl;
-import com.cnpeak.expressreader.model.dao.MagazineListDaoImpl;
-import com.cnpeak.expressreader.model.dao.PaperCoverDaoImpl;
 import com.cnpeak.expressreader.model.db.ErDatabase;
 import com.cnpeak.expressreader.model.remote.LCIDModuleFactory;
 
@@ -87,8 +83,11 @@ class LocalePresenter extends BasePresenter {
                     @Override
                     public void onComplete() {
                     }
+
+
                 });
 
     }
+
 
 }

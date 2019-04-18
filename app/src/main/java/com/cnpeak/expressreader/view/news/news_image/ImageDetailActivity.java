@@ -26,8 +26,6 @@ public class ImageDetailActivity extends BaseActivity<IView, ImageDetailPresente
     private ArrayList<String> mImageUrls;
     //当前需要显示的图片位置
     private int mCurrentImageIndex;
-    //是否需要显示索引位置
-    private boolean mShowIndex;
 
     @Override
     protected int getActivityLayoutId() {
@@ -46,7 +44,6 @@ public class ImageDetailActivity extends BaseActivity<IView, ImageDetailPresente
             //获取图片数组信息
             mImageUrls = intent.getStringArrayListExtra(ErConstant.IMAGE_DETAIL_URLS);
             mCurrentImageIndex = intent.getIntExtra(ErConstant.IMAGE_CURRENT_INDEX, 0);
-            mShowIndex = intent.getBooleanExtra(ErConstant.IMAGE_SHOW_FLAG, true);
         }
     }
 
@@ -109,7 +106,7 @@ public class ImageDetailActivity extends BaseActivity<IView, ImageDetailPresente
 
     private void initImageIndex() {
         mTvCurrentIndex = findViewById(R.id.tv_image_detail_index);
-        if (mShowIndex) {
+        if (mCurrentImageIndex >= 0) {
             mTvCurrentIndex.setText(String.format(LocaleHelper.getLocale(mContext),
                     "%d/%d", mCurrentImageIndex + 1, mImageUrls.size()));
             mTvCurrentIndex.setVisibility(View.VISIBLE);

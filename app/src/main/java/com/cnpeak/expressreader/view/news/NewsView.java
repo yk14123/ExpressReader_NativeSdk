@@ -8,7 +8,6 @@ import java.util.List;
 /**
  * @author builder by HUANG JIN on 18/11/9
  * @version 1.0
- * @description
  */
 public interface NewsView extends IView {
 

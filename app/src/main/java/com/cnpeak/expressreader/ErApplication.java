@@ -28,11 +28,14 @@ public class ErApplication extends Application {
         initLocaleDev();
 
         initDatabase();
+
     }
 
     /**
      * 是否开启调试日志 - - 测试期间开启debug模式
      */
+
+    // Hello Melvin
     private void initLogger() {
         boolean debug = BuildConfig.DEBUG;
         LogUtils.setLogEnable(debug);

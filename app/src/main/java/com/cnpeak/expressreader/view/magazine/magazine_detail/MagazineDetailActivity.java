@@ -146,9 +146,9 @@ public class MagazineDetailActivity extends BaseActivity<MagazineDetailView, Mag
     @Override
     protected void onResume() {
         super.onResume();
-        if (!hasSendEvent) {
-            checkLocationPermission();
-        }
+//        if (!hasSendEvent) {
+////            checkLocationPermission();
+////        }
     }
 
     private void checkLocationPermission() {
@@ -402,7 +402,7 @@ public class MagazineDetailActivity extends BaseActivity<MagazineDetailView, Mag
             mIssueImgAdapter.setOnImageClickListener(new ImageDetailAdapter.OnImageClickListener() {
                 @Override
                 public void onImageClick(int position) {
-                    UIHelper.startImageActivity(mContext, images, position, true);
+                    UIHelper.startImageActivity(mContext, images, position);
                 }
             });
             mIssueImagePaper.setAdapter(mIssueImgAdapter);

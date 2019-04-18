@@ -2,16 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.cnpeak.expressreader">
-    <!--网络相关权限-->
+    <!-- 网络相关权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <!--文件读写相关权限-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 读取手机状态 phone group -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 文件读写相关权限 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!--获取地理位置权限-->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <supports-screens
         android:anyDensity="true"
@@ -21,7 +18,7 @@
         android:smallScreens="true" />
 
     <application
-        android:name="com.cnpeak.expressreader.ErApplication"
+        android:name=".ErApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/expressreader_app_name"
         android:networkSecurityConfig="@xml/network_security_config"
@@ -30,9 +27,9 @@
         android:theme="@style/ExpressReader_SplashTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning"
         tools:targetApi="n">
-
+        <activity android:name=".test.TestActivity"></activity>
         <activity
-            android:name="com.cnpeak.expressreader.view.splash.ErSplashActivity"
+            android:name=".view.splash.ErSplashActivity"
             android:theme="@style/ExpressReader_SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,34 +38,35 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.cnpeak.expressreader.view.home.ErHomeActivity"
+            android:name=".view.home.ErHomeActivity"
             android:theme="@style/ExpressReader_NoActionBar" />
         <activity
-            android:name="com.cnpeak.expressreader.view.news.news_detail.NewsDetailActivity"
+            android:name=".view.news.news_detail.NewsDetailActivity"
             android:configChanges="orientation|screenLayout|screenSize|locale|keyboard|keyboardHidden"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait"
             android:theme="@style/ExpressReader_NewsDetailTheme" />
         <activity
-            android:name="com.cnpeak.expressreader.view.news.news_image.ImageDetailActivity"
+            android:name=".view.news.news_image.ImageDetailActivity"
             android:theme="@style/ExpressReader_ImageScaleAction" />
         <activity
-            android:name="com.cnpeak.expressreader.view.magazine.magazine_units.MagazineUnitActivity"
+            android:name=".view.magazine.magazine_units.MagazineUnitActivity"
             android:theme="@style/ExpressReader_MagazineStyle" />
         <activity
-            android:name="com.cnpeak.expressreader.view.magazine.magazine_detail.MagazineDetailActivity"
+            android:name=".view.magazine.magazine_detail.MagazineDetailActivity"
             android:theme="@style/ExpressReader_MagazineStyle" />
         <activity
-            android:name="com.cnpeak.expressreader.view.newspaper.paper_news.PaperNewsActivity"
+            android:name=".view.newspaper.paper_news.PaperNewsActivity"
             android:theme="@style/ExpressReader_NoActionBar" />
         <activity
-            android:name="com.cnpeak.expressreader.view.magazine.magazine_review.MagazineReviewActivity"
+            android:name=".view.magazine.magazine_review.MagazineReviewActivity"
             android:theme="@style/ExpressReader_MagazineStyle" />
         <activity
-            android:name="com.cnpeak.expressreader.view.mine.locale.LocaleSettingActivity"
+            android:name=".view.mine.locale.LocaleSettingActivity"
             android:theme="@style/ExpressReader_NoActionBar" />
         <activity
-            android:name="com.cnpeak.expressreader.view.mine.local.LocalHistoryActivity"
+            android:name=".view.mine.local.LocalHistoryActivity"
             android:theme="@style/ExpressReader_NoActionBar" />
     </application>
+
 </manifest>

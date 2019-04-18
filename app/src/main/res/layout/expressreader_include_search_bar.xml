@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_40"
+    android:background="@color/expressreader_colorPrimaryDark"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/dp_10"
+    android:paddingTop="@dimen/dp_6"
+    android:paddingEnd="@dimen/dp_10"
+    android:paddingBottom="@dimen/dp_6">
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/sv_search_bar"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:layout_weight="1"
+        android:background="@drawable/expressreader_search_bar_bg"
+        app:iconifiedByDefault="false"
+        app:queryHint="@string/expressreader_query_hint" />
+
+    <RadioGroup
+        android:id="@+id/rg_macao_group"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_25"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_macao_button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@drawable/expressreader_macao_btn_selector"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:paddingStart="@dimen/dp_10"
+            android:paddingTop="@dimen/dp_4"
+            android:paddingEnd="@dimen/dp_10"
+            android:paddingBottom="@dimen/dp_4"
+            android:text="@string/expressreader_macau"
+            android:textColor="@drawable/expressreader_macao_text_selector" />
+
+        <RadioButton
+            android:id="@+id/rb_china_button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@drawable/expressreader_macao_btn_selector"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:paddingStart="@dimen/dp_10"
+            android:paddingTop="@dimen/dp_4"
+            android:paddingEnd="@dimen/dp_10"
+            android:paddingBottom="@dimen/dp_4"
+            android:text="@string/expressreader_china"
+            android:textColor="@drawable/expressreader_macao_text_selector" />
+
+    </RadioGroup>
+
+</LinearLayout>

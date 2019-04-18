@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.cnpeak.expressreader.global.ErConstant;
 import com.cnpeak.expressreader.net.ApiManager;
+import com.cnpeak.expressreader.net.ApiService;
 import com.google.gson.JsonObject;
 
 import java.text.DateFormat;
@@ -30,7 +31,7 @@ public class MagazineBrandClickEventFactory {
         jsonObject.addProperty(ErConstant.CLICK_TIME, clickTime);
 
         ApiManager.builder()
-                .getService()
+                .createServiceFrom(ApiService.class)
                 .sendMagBrandClickEvent(jsonObject)
                 .enqueue(new Callback<Void>() {
                     @Override

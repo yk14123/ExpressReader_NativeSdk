@@ -3,6 +3,7 @@ package com.cnpeak.expressreader.model.remote;
 import com.cnpeak.expressreader.model.local.UserInfoLocalFactory;
 import com.cnpeak.expressreader.model.bean.UserBean;
 import com.cnpeak.expressreader.net.ApiManager;
+import com.cnpeak.expressreader.net.ApiService;
 import com.google.gson.JsonObject;
 
 import io.reactivex.Observable;
@@ -14,7 +15,7 @@ public class UserBeanModuleFactory {
 
     public static Observable<UserBean.UserInfoBean> signInByEmail(JsonObject requestBody) {
         return ApiManager.builder()
-                .getService()
+                .createServiceFrom(ApiService.class)
                 .signInByEmail(requestBody)
                 .map(new Function<UserBean, UserBean.UserInfoBean>() {
                     @Override

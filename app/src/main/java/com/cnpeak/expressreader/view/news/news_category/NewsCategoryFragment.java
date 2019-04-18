@@ -250,19 +250,16 @@ public class NewsCategoryFragment extends BaseFragment implements NewsCategoryVi
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Log.d(TAG, "onViewCreated: Keyword >>>" + mKeyword);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        Log.d(TAG, "onResume: Keyword >>>" + mKeyword);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        Log.d(TAG, "onPause: Keyword >>>" + mKeyword);
     }
 
     @Override

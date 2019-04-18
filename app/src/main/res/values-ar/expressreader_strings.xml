@@ -93,4 +93,10 @@
     <string name="expressreader_drag_reorganize">To reorganize the news</string>
     <string name="expressreader_hot_news">The HotSpot</string>
     <string name="expressreader_clear_all_confirm">确认清除？</string>
+    <string name="expressreader_query_hint">请输入搜索内容</string>
+    <string name="expressreader_macau">澳门</string>
+    <string name="expressreader_china">中国</string>
+    <string name="expressreader_menu_tts_play">tts语音播报</string>
+    <string name="expressreader_menu_copy">复制</string>
+    <string name="expressreader_menu_translate">翻译</string>
 </resources>

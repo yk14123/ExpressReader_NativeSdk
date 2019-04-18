@@ -82,7 +82,11 @@
 
             </RelativeLayout>
 
-            <WebView
+            <!--<WebView-->
+                <!--android:id="@+id/wv_news_detail"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content" />-->
+            <com.cnpeak.expressreader.view.widget.web.ActionWebView
                 android:id="@+id/wv_news_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />

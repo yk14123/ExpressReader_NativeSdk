@@ -1,10 +1,15 @@
 package com.cnpeak.expressreader.net;
 
+import android.os.Debug;
+import android.util.Log;
+
+import com.cnpeak.expressreader.BuildConfig;
 import com.cnpeak.expressreader.global.ErConstant;
 
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -21,41 +26,66 @@ public class ApiManager {
     //采用单例模式封装Retrofit
     private static Retrofit sRetrofit;
 
+    private OkHttpClient okHttpClient;
+
     public static ApiManager builder() {
         return Holder.sApiManager;
     }
 
     //静态方法提供ApiManager实例 --->内部封装ApiManager访问实例
     private static class Holder {
-
         private static ApiManager sApiManager = new ApiManager();
 
         private Holder() {
         }
-
     }
 
+
     private ApiManager() {
-        //初始化OkHttpClient+Retrofit
-        OkHttpClient mOkHttpClient = new OkHttpClient.Builder()
+        initClient();
+    }
+
+    //初始化OkHttpClient+Retrofit
+    private void initClient() {
+        OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder()
                 .connectTimeout(CONNECT_TIME_OUT, TimeUnit.MILLISECONDS)
                 .readTimeout(READ_TIME_OUT, TimeUnit.MILLISECONDS)
                 .writeTimeout(WRITE_TIME_OUT, TimeUnit.MILLISECONDS)
                 .followRedirects(true)
-                .sslSocketFactory(HttpsUtils.initSSLSocketFactory(), HttpsUtils.initTrustManager())
-                .build();
+                .sslSocketFactory(HttpsUtils.initSSLSocketFactory(), HttpsUtils.initTrustManager());
+        if (BuildConfig.DEBUG) {
+            HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
+                @Override
+                public void log(String message) {
+                    //打印retrofit日志
+                    Log.e("NetLog", "message = " + message);
+                }
+            });
+            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+            clientBuilder.addInterceptor(loggingInterceptor);
+        }
+        okHttpClient = clientBuilder.build();
+
         sRetrofit = new Retrofit.Builder()
                 .baseUrl(ErConstant.BASE_SERVER_URL)
-//                .baseUrl(ErConstant.BASE_URL)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(mOkHttpClient)
+//                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonFormatFactory.create())
+                .client(okHttpClient)
                 .build();
     }
 
+    public OkHttpClient getOkHttpClient() {
+        return okHttpClient;
+    }
+
     //获取ApiService接口调用对象
-    public ApiService getService() {
-        return sRetrofit.create(ApiService.class);
+    public <T> T createServiceFrom(Class<T> clz) {
+        //检查是否初始化
+        if (sRetrofit == null) {
+            initClient();
+        }
+        return sRetrofit.create(clz);
     }
 
 }
